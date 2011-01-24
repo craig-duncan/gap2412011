@@ -1,0 +1,6 @@
+[core]
+autocrlf = true
+
+
+[push]
+    default = current
