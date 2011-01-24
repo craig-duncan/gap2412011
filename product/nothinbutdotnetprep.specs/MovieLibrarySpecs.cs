@@ -75,7 +75,6 @@ namespace nothinbutdotnetprep.specs
 
             It should_return_the_number_of_all_movies_in_the_library = () =>
             {
-                Console.Out.WriteLine("This should be cool");
                 number_of_movies.ShouldEqual(2);
             };
         }
