@@ -5,6 +5,7 @@ using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Extensions;
 using Machine.Specifications.DevelopWithPassion.Rhino;
 using nothinbutdotnetprep.collections;
+using nothinbutdotnetprep.infrastructure.searching;
 using nothinbutdotnetprep.tests.utility;
 using nothinbutdotnetprep.infrastructure;
 
@@ -188,7 +189,8 @@ namespace nothinbutdotnetprep.specs
             It should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
                 var criteria = Where<Movie>.has_a(x => x.production_studio)
-                    .equal_to(ProductionStudio.Pixar);
+                                           .equal_to(ProductionStudio.Pixar);
+
 
                 var results = sut.all_movies().all_matching(criteria);
 
@@ -197,7 +199,12 @@ namespace nothinbutdotnetprep.specs
 
             It should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
             {
-                var results = sut.all_movies_published_by_pixar_or_disney();
+                var criteria = Where<Movie>.has_a(x => x.production_studio)
+                                           .equal_to_any(ProductionStudio.Pixar,
+                                           ProductionStudio.Disney);
+
+                var results = sut.all_movies().all_matching(criteria);
+
 
                 results.ShouldContainOnly(a_bugs_life, pirates_of_the_carribean, cars);
             };
