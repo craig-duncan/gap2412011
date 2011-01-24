@@ -11,7 +11,7 @@ namespace nothinbutdotnetprep.infrastructure
             return items.all_matching(condition.matches);
         }
 
-        static IEnumerable<T> all_matching<T>(this IEnumerable<T> items, Predicate<T> condition)
+        public static IEnumerable<T> all_matching<T>(this IEnumerable<T> items, Predicate<T> condition)
         {
             foreach (var item in items)
                 if (condition(item)) yield return item;

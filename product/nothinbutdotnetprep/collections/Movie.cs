@@ -46,13 +46,13 @@ namespace nothinbutdotnetprep.collections
             return new IsPublishedBy(ProductionStudio.Pixar).and(
                 new IsPublishedBy(ProductionStudio.Disney));
         }
-        public static MovieCriteria is_published_by(ProductionStudio studio)
+        public static MovieCondition is_published_by(ProductionStudio studio)
         {
             return x => x.production_studio == studio;
         }
-        public static MovieCriteria is_published_by_pixar(Movie movie)
+        public static Criteria<Movie> is_published_by_pixar(Movie movie)
         {
-            return new IsPublishedBy(ProductionStudio.Pixar).matches;
+            return new IsPublishedBy(ProductionStudio.Pixar);
         }
     }
 }
