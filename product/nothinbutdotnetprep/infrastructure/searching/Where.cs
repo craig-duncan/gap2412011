@@ -7,10 +7,10 @@ namespace nothinbutdotnetprep.infrastructure.searching
 
     public class Where<ItemToSearch>
     {
-        public static CriteriaFactory<ItemToSearch,PropertyType> has_an<PropertyType>(
+        public static ComparableCriteriaFactory<ItemToSearch, PropertyType> has_an<PropertyType>(
             PropertyAccessor<ItemToSearch, PropertyType> accessor) where PropertyType : IComparable<PropertyType>,new()
         {
-            return new CriteriaFactory<ItemToSearch,PropertyType>(accessor);
+            return new ComparableCriteriaFactory<ItemToSearch,PropertyType>(accessor);
         }
         public static CriteriaFactory<ItemToSearch,PropertyType> has_a<PropertyType>(
             PropertyAccessor<ItemToSearch, PropertyType> accessor)
