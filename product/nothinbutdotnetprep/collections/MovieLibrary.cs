@@ -14,7 +14,8 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies()
         {
-            return movies;
+            foreach (var m in movies)
+                yield return m; 
         }
 
         public void add(Movie movie)
