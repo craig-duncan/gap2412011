@@ -17,7 +17,7 @@ function format_time_as_new_branch_name
   "$($now.year)$($now.month)$($now.day)$($now.hour)$($now.minute)"
 }
 
-function get_latest_on_new_branch($branch_name,$commit_message)
+function get_latest_on_new_branch($branch_name)
 {
   git add -A
   git commit -m "Committing"
@@ -26,8 +26,6 @@ function get_latest_on_new_branch($branch_name,$commit_message)
   git pull jp master
 }
 
-$commit_message = get_commit_message($message)
-if ($commit_message -eq [String]::empty) {exit}
 $new_branch_name = format_time_as_new_branch_name
-get_latest_on_new_branch($new_branch_name,$commit_message)
+get_latest_on_new_branch($new_branch_name)
 echo "new branch name:$new_branch_name message:$commit_message"
