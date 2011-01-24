@@ -6,7 +6,7 @@ namespace nothinbutdotnetprep.infrastructure.searching
         where PropertyType : IComparable<PropertyType>,new()
     {
         PropertyAccessor<ItemToSearch, PropertyType> accessor;
-        BasicCriteriaFactory<ItemToSearch, PropertyType> basic_criteria_factory;
+        CriteriaFactory<ItemToSearch, PropertyType> basic_criteria_factory;
 
         public ComparableCriteriaFactory(PropertyAccessor<ItemToSearch, PropertyType> accessor, BasicCriteriaFactory<ItemToSearch, PropertyType> basic_criteria_factory)
         {

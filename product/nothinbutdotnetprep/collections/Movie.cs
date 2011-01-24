@@ -38,12 +38,13 @@ namespace nothinbutdotnetprep.collections
 
         public static Criteria<Movie> is_in_genre(Genre genre)
         {
-            return new AnonymousCriteria<Movie>(x => x.genre == genre);
+            //return new AnonymousCriteria<Movie>(x => x.genre == genre);
+            return AnonymousCriteriaFactory<Movie>.create(x => x.genre == genre );
         }
 
         public static Criteria<Movie> is_published_by_pixar_or_disney(Movie movie)
         {
-            return new AnonymousCriteria<Movie>(x => x.production_studio == ProductionStudio.Pixar ||
+            return AnonymousCriteriaFactory<Movie>.create(x => x.production_studio == ProductionStudio.Pixar ||
                 x.production_studio == ProductionStudio.Disney);
         }
         public static MovieCondition is_published_by(ProductionStudio studio)
