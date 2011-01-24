@@ -41,13 +41,21 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="collections\MovieCriteria.cs" />
+    <Compile Include="collections\IsInGenre.cs" />
+    <Compile Include="collections\IsPublishedBy.cs" />
+    <Compile Include="collections\MovieCondition.cs" />
     <Compile Include="collections\Genre.cs" />
     <Compile Include="collections\Movie.cs" />
+    <Compile Include="collections\MovieCriteria.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
+    <Compile Include="infrastructure\searching\AndCriteria.cs" />
+    <Compile Include="infrastructure\searching\AnonymousCriteria.cs" />
+    <Compile Include="infrastructure\searching\Criteria.cs" />
+    <Compile Include="infrastructure\searching\CriteriaExtensions.cs" />
+    <Compile Include="infrastructure\searching\NotCriteria.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

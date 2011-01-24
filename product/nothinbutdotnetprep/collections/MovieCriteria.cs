@@ -1,4 +1,8 @@
+﻿using nothinbutdotnetprep.infrastructure.searching;
+
 namespace nothinbutdotnetprep.collections
 {
-    public delegate bool MovieCriteria(Movie movie);
+    public interface MovieCriteria : Criteria<Movie>
+    {
+    }
 }
