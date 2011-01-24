@@ -20,5 +20,11 @@ namespace nothinbutdotnetprep.infrastructure.searching
         {
             return new AnonymousCriteria<ItemToSearch>(x => new List<PropertyType>(values).Contains(accessor(x)));
         }
+        public Criteria<ItemToSearch> not_equal_to_any(params PropertyType[] values)
+        {
+            return new AnonymousCriteria<ItemToSearch>(x => new List<PropertyType>(values).Contains(accessor(x)).Equals(false));
+            //Criteria<ItemToSearch> crit = equal_to_any(values);
+            //crit.Equals()
+        }
     }
 }
