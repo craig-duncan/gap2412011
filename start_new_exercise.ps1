@@ -20,7 +20,7 @@ function format_time_as_new_branch_name
 function get_latest_on_new_branch($branch_name,$commit_message)
 {
   git add -A
-  git commit -m $commit_message
+  git commit -m "Committing"
   git checkout master
   git checkout -b format_time_as_new_branch_name
   git pull jp master
