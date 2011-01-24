@@ -1,5 +1,4 @@
 using System;
-using System.Data.SqlClient;
 
 namespace nothinbutdotnetprep.infrastructure.searching
 {
@@ -8,14 +7,16 @@ namespace nothinbutdotnetprep.infrastructure.searching
     public class Where<ItemToSearch>
     {
         public static ComparableCriteriaFactory<ItemToSearch, PropertyType> has_an<PropertyType>(
-            PropertyAccessor<ItemToSearch, PropertyType> accessor) where PropertyType : IComparable<PropertyType>,new()
+            PropertyAccessor<ItemToSearch, PropertyType> accessor) where PropertyType : IComparable<PropertyType>, new()
         {
-            return new ComparableCriteriaFactory<ItemToSearch,PropertyType>(accessor);
+            return new ComparableCriteriaFactory<ItemToSearch, PropertyType>(accessor,
+                has_a(accessor));
         }
-        public static CriteriaFactory<ItemToSearch,PropertyType> has_a<PropertyType>(
+
+        public static BasicCriteriaFactory<ItemToSearch, PropertyType> has_a<PropertyType>(
             PropertyAccessor<ItemToSearch, PropertyType> accessor)
         {
-            return new CriteriaFactory<ItemToSearch,PropertyType>(accessor);
+            return new BasicCriteriaFactory<ItemToSearch, PropertyType>(accessor);
         }
     }
 }
